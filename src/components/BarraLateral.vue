@@ -44,10 +44,10 @@ export default defineComponent ({
     height: 100vh;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     header {
       padding: 2.5rem;
-      height: auto;
+      max-height: 40vh;
     }
   }
 </style>

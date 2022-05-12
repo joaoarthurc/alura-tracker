@@ -1,12 +1,12 @@
 <template>
   <main :class="{ 'modo-escuro': this.modoEscuroAtivo }">
     <div class="row">
-      <div class="col-4 pe-0">
+      <div class="col-lg-4 pe-0">
         <BarraLateral @aoTemaAlterado="trocarTema"/>
       </div>
-      <div class="col-8 ps-0 conteudo">
-        <Formulario @aoSalvarTarefa="salvarTarefa"/>
-        <div class="lista px-3">
+      <div class="col-lg-8 px-3 conteudo d-flex flex-column align-items-center align-items-lg-start">
+        <Formulario @aoSalvarTarefa="salvarTarefa" class="w-100"/>
+        <div class="lista px-3 w-100">
           <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"/>
           <Box v-if="listaEstaVazia">  
             Você não está muito produtivo hoje :(
@@ -67,5 +67,10 @@ export default defineComponent({
 
   .conteudo {
     background-color: var(--bg-primario);
-  }
+   }
+    @media screen and (max-width:991px) {
+      .conteudo {
+        min-height: 70vh;
+      }
+    }
 </style>
