@@ -5,13 +5,7 @@
         <BarraLateral @aoTemaAlterado="trocarTema"/>
       </div>
       <div class="col-lg-8 px-3 conteudo d-flex flex-column align-items-center align-items-lg-start">
-        <Formulario @aoSalvarTarefa="salvarTarefa" class="w-100"/>
-        <div class="lista px-3 w-100">
-          <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"/>
-          <Box v-if="listaEstaVazia">  
-            Você não está muito produtivo hoje :(
-          </Box>
-        </div>
+        <router-view/>
       </div>
     </div>
   </main>
@@ -20,18 +14,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import BarraLateral from './components/BarraLateral.vue';
-import Formulario from './components/Formulario.vue';
-import Tarefa from './components/Tarefa.vue';
 import ITarefa from './interfaces/ITarefa';
-import Box from './components/Box.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     BarraLateral,
-    Formulario, 
-    Tarefa,
-    Box
   },
   data () {
     return {

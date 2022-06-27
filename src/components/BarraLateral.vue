@@ -8,6 +8,22 @@
         {{ textoBotao }}
       </button>
     </div>
+    <nav class="panel mt-5">
+      <ul>
+        <li>
+          <router-link to="/" class="link">
+            <i class="fas fa-tasks"></i>
+            Tarefas
+          </router-link>
+        </li>
+         <li class="pt-2">
+          <router-link to="/projetos" class="link">
+            <i class="fas fa-project-diagram"></i>
+            Projetos
+          </router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -49,5 +65,20 @@ export default defineComponent ({
       padding: 2.5rem;
       max-height: 40vh;
     }
+  }
+
+  .panel {
+    box-shadow: none;
+  }
+
+  .link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: .4s;
+  }
+
+  .link:hover {
+   color: black;
+   font-size: 18px;
   }
 </style>
