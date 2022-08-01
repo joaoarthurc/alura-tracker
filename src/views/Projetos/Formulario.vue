@@ -18,9 +18,12 @@
 </template>
 
 <script lang="ts">
+import { TipoNotificacao } from "@/interfaces/INotificacao";
 import { useStore } from "@/store";
 import { ALTERA_PROJETO, ADICIONA_PROJETO } from "@/store/tipo-mutacoes";
 import { defineComponent } from "vue";
+import useNotificador from "@/hooks/notificador"
+
 export default defineComponent({
   name: "FormularioProjeto",
   props: {
@@ -49,16 +52,19 @@ export default defineComponent({
         this.$router.push('/projetos');
       } else {
         this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto);
-        this.nomeDoProjeto = "";
-        this.$router.push('/projetos');
       }
+        this.nomeDoProjeto = "";
+        this.notificar("Excelente", "O projeto foi cadastrado com sucesso", TipoNotificacao.SUCESSO);
+        this.$router.push('/projetos');
     },
   },
   setup () {
-    const store = useStore()
+    const store = useStore();
+    const { notificar } = useNotificador();
     return {
-      store
-    }
+      store,
+      notificar
+    };
   }
 });
 </script>

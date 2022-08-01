@@ -5,6 +5,7 @@
         <BarraLateral @aoTemaAlterado="trocarTema"/>
       </div>
       <div class="col-lg-8 px-3 conteudo d-flex flex-column align-items-center align-items-lg-start">
+        <NotificacoeSa/>
         <router-view/>
       </div>
     </div>
@@ -14,14 +15,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import BarraLateral from './components/BarraLateral.vue';
+import NotificacoeSa from './components/Notificacoes.vue';
 import ITarefa from './interfaces/ITarefa';
 
 export default defineComponent({
   name: 'App',
   components: {
-    BarraLateral,
+    BarraLateral, NotificacoeSa
   },
   data () {
+    
     return {
       tarefas: [] as ITarefa[],
       modoEscuroAtivo: false
